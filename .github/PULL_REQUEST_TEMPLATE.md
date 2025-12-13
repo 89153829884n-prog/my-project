@@ -1,6 +1,6 @@
-## Чек-лист
-- [ ] HTML прошел валидацию (W3C Validator)
-- [ ] Добавлена фавиконка
-- [ ] Добавлен мета-тег viewport
-- [ ] Изменения не сломали существующую функциональность
-- [ ] Протестировано в браузере
+## Checklist
+- [ ] HTML validated (W3C Validator)
+- [ ] Favicon added
+- [ ] Viewport meta tag added
+- [ ] Changes did not break existing functionality
+- [ ] Tested in browser

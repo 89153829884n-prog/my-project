@@ -1,6 +1,6 @@
-# Игнорирование служебных файлов ОС
+# Ignore OS service files
 .DS_Store
 Thumbs.db
-# Игнорирование логов и зависимостей
+# Ignore logs and dependencies
 npm-debug.log*
-node_modules/
+node_modules/

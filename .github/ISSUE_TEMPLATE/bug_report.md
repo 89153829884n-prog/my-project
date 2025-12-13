@@ -1,13 +1,13 @@
-## Описание бага
-[Опиши проблему]
+## Bug Description
+[Describe the problem]
 
-## Шаги воспроизведения
-1. 
-2. 
-3. 
+## Reproduction Steps
+1.
+2.
+3.
 
-## Ожидаемое поведение
-[Что должно было произойти]
+## Expected Behavior
+[What Should Have Happened]
 
-## Скриншоты
-[Если есть]
+## Screenshots
+[If any]
