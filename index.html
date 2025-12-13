@@ -15,12 +15,13 @@
     <!-- ШАПКА -->
     <header class="bg-primary p-20">
         <nav class="flex items-center justify-between px-20">
-            <class="grid-3">
+            <div class="flex items-center gap-20">
                 <img src="assets/LOGO.png" alt="Revo Coffee" width="120" class="hover-scale transition">
                 <span class="text-white text-20 font-montserrat">REVO COFFEE ELBRUS</span>
             </div>
 
-            <ul class="flex items-center gap-30 list-none">
+            <!-- Десктопное меню -->
+            <ul class="desktop-menu flex items-center gap-30 list-none">
                 <li><a href="#home" class="text-white text-16 font-nunito hover:text-accent transition">ГЛАВНАЯ</a></li>
                 <li><a href="#coffee" class="text-white text-16 font-nunito hover:text-accent transition">КОФЕ</a></li>
                 <li><a href="#gifts" class="text-white text-16 font-nunito hover:text-accent transition">ПОДАРКИ</a></li>
@@ -31,10 +32,23 @@
 
             <div class="flex items-center gap-20">
                 <img src="assets/icons/shopping-cart-3.png" alt="Корзина" width="30" class="hover-scale transition">
-                <span class="text-white text-16">КОРЗИНА</span>
+                <span class="text-white text-16 hidden sm:block">КОРЗИНА</span>
             </div>
+
+            <!-- Кнопка бургер-меню (только для мобильных) -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
     </header>
+
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="text-white text-16 font-nunito py-10 px-20 hover:bg-accent transition">ГЛАВНАЯ</a>
+        <a href="#coffee" class="text-white text-16 font-nunito py-10 px-20 hover:bg-accent transition">КОФЕ</a>
+        <a href="#gifts" class="text-white text-16 font-nunito py-10 px-20 hover:bg-accent transition">ПОДАРКИ</a>
+        <a href="#combos" class="text-white text-16 font-nunito py-10 px-20 hover:bg-accent transition">НАБОРЫ</a>
+        <a href="#quality" class="text-white text-16 font-nunito py-10 px-20 hover:bg-accent transition">КАЧЕСТВО</a>
+        <a href="#contact" class="text-white text-16 font-nunito py-10 px-20 hover:bg-accent transition">КОНТАКТЫ</a>
+    </div>
 
     <main>
         <!-- БАННЕР НА 60% СПРАВА -->
@@ -169,9 +183,9 @@
             <h2 class="text-30 font-montserrat text-primary text-center mb-10">YOUR PERSONALIZED COFFEE</h2>
             <h3 class="text-24 font-nunito text-dark text-center mb-30">Выберите набор для своего спорта</h3>
 
-            <div class="flex justify-between gap-20">
+            <div class="grid-3">
                 <!-- Комбо 1 -->
-                <div class="flex-1 bg-white border rounded-10 p-20 text-center hover-shadow transition">
+                <div class="bg-white border rounded-10 p-20 text-center hover-shadow transition">
                     <img src="assets/img/image_2.png" alt="Комбо 1" class="w-200 mx-auto mb-20">
                     <h4 class="text-20 font-nunito text-primary mb-10">КОМБО "СНОУБОРДИСТ"</h4>
                     <p class="text-16 mb-20">Насыщенный вкус для энергичного катания</p>
@@ -181,7 +195,7 @@
                 </div>
 
                 <!-- Комбо 2 -->
-                <div class="flex-1 bg-white border rounded-10 p-20 text-center hover-shadow transition">
+                <div class="bg-white border rounded-10 p-20 text-center hover-shadow transition">
                     <img src="assets/img/image_3.png" alt="Комбо 2" class="w-200 mx-auto mb-20">
                     <h4 class="text-20 font-nunito text-primary mb-10">КОМБО "ГОРНОЛЫЖНИК"</h4>
                     <p class="text-16 mb-20">Сбалансированный вкус для спусков</p>
@@ -191,7 +205,7 @@
                 </div>
 
                 <!-- Комбо 3 -->
-                <div class="flex-1 bg-white border rounded-10 p-20 text-center hover-shadow transition">
+                <div class="bg-white border rounded-10 p-20 text-center hover-shadow transition">
                     <img src="assets/img/image_6.png" alt="Комбо 3" class="w-200 mx-auto mb-20">
                     <h4 class="text-20 font-nunito text-primary mb-10">КОМБО "АЛЬПИНИСТ"</h4>
                     <p class="text-16 mb-20">Премиум кофе для покорителей вершин</p>
@@ -280,7 +294,7 @@
         }
 
         // Плавная прокрутка для навигации
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('nav a, .mobile-menu a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
@@ -295,6 +309,30 @@
                 }
             });
         });
+
+        // Мобильное меню
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('show');
+            });
+
+            // Закрытие меню при клике на ссылку
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('show');
+                });
+            });
+
+            // Закрытие меню при клике вне его
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('show');
+                }
+            });
+        }
     </script>
 </body>
 </html>
