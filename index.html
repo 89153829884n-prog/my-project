@@ -3,175 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revo Coffee Elbrus - Кофе на вершине</title>
+    <title>Revo Coffee - Кофе с Эльбруса</title>
     <link rel="icon" href="assets/icons/IC_coffee.png" type="image/x-icon">
+    <style>
+        /* Базовые стили для карусели */
+        .coffee-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .coffee-card {
+            min-width: 250px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .hero-banner {
+            display: flex;
+            align-items: center;
+            background: url('assets/img/banner.png') no-repeat left center;
+            background-size: cover;
+            min-height: 500px;
+            padding-left: 50%;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: #C7A87A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <!-- ШАПКА: лого + навигация как в макете -->
+    <!-- ШАПКА -->
     <header>
         <nav>
             <div>
                 <img src="assets/LOGO.png" alt="Revo Coffee" width="120">
-                <span style="font-size: 12px;">ELBRUS EDITION</span>
+                <span>Эльбрус</span>
             </div>
             <ul>
                 <li><a href="#home">ГЛАВНАЯ</a></li>
                 <li><a href="#coffee">КОФЕ</a></li>
-                <li><a href="#equipment">СНАРЯЖЕНИЕ</a></li>
-                <li><a href="#combos">КОМБО-НАБОРЫ</a></li>
-                <li><a href="#giftset">ПОДАРКИ</a></li>
+                <li><a href="#gifts">ПОДАРКИ</a></li>
+                <li><a href="#combos">НАБОРЫ</a></li>
+                <li><a href="#about">О НАС</a></li>
                 <li><a href="#contact">КОНТАКТЫ</a></li>
             </ul>
+            <div>
+                <img src="assets/icons/shopping-cart-3.png" alt="Корзина" width="30">
+            </div>
         </nav>
     </header>
 
     <main>
-        <!-- БАННЕР: Your Personalized Coffee + Эльбрус -->
-        <section id="home">
-            <img src="assets/img/banner.png" alt="Эльбрус горнолыжный курорт" width="100%">
-            <h1>Your Personalized Coffee</h1>
-            <h2>КОФЕ ДЛЯ ПОКОРЕНИЯ ВЕРШИН</h2>
-            <p>На высоте 5642 метра, на склонах Эльбруса</p>
+        <!-- БАННЕР НА 60% СПРАВА -->
+        <section id="home" class="hero-banner">
+            <div class="hero-content">
+                <h1>Ваш персональный кофе</h1>
+                <h2>КОФЕ ДЛЯ ПОКОРЕНИЯ ВЕРШИН</h2>
+                <p>На высоте 5642 метра, на склонах Эльбруса</p>
+                <button>ВЫБРАТЬ КОФЕ</button>
+            </div>
         </section>
 
-        <!-- GIFTSET СЕКЦИЯ: подарочные наборы для спортсменов -->
-        <section id="giftset">
-            <h2>GIFTSET</h2>
-            <h3>Лучший подарок для лыжника и сноубордиста</h3>
+        <!-- ИКОНКИ В СТРОКУ -->
+        <section class="features">
+            <div class="feature-item">
+                <img src="assets/icons/IC_Mountain.png" alt="Высота" width="50">
+                <h3>Высота Эльбруса</h3>
+                <p>Зерна собираются на склонах</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/icons/IC_coffee.png" alt="Качество" width="50">
+                <h3>Премиум качество</h3>
+                <p>Отборные зерна Arabica</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/icons/IC_1.png" alt="Магазин" width="50">
+                <h3>Магазин на склоне</h3>
+                <p>Прямо на горнолыжной трассе</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/icons/IC_2.png" alt="Доставка" width="50">
+                <h3>Доставка</h3>
+                <p>По всему курорту</p>
+            </div>
+        </section>
 
-            <article>
-                <img src="assets/img/image_1.png" alt="Набор 'Эльбрусский восход'" width="300">
-                <div>
-                    <h4>Набор "Эльбрусский Восход"</h4>
-                    <p>Идеальный набор для утра на склоне. Кофе отборной обжарки с горными травами, собранными на склонах Эльбруса. Согревает после катания и заряжает энергией.</p>
+        <!-- КАРУСЕЛЬ КОФЕ -->
+        <section id="coffee">
+            <h2>Выберите свой кофе</h2>
+            <div class="coffee-carousel" id="coffeeCarousel">
+                <!-- Карточка 1 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_1.png" alt="Эльбрусский восход" width="200">
+                    <h3>Эльбрусский восход</h3>
+                    <p>Для утра на склоне. Горные травы.</p>
+                    <p><strong>2 850 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_2.png" alt="Для сноубордиста" width="200">
+                    <h3>Для сноубордиста</h3>
+                    <p>Энергичный вкус, повышенный кофеин.</p>
+                    <p><strong>1 550 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+                <!-- Карточка 3 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_3.png" alt="Для горнолыжника" width="200">
+                    <h3>Для горнолыжника</h3>
+                    <p>Сбалансированный, с нотками шоколада.</p>
+                    <p><strong>1 650 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+                <!-- Карточка 4 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_6.png" alt="Для альпиниста" width="200">
+                    <h3>Для альпиниста</h3>
+                    <p>Премиум, медовая обработка.</p>
+                    <p><strong>2 600 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="scrollCarousel(-250)">← Назад</button>
+                <button onclick="scrollCarousel(250)">Вперед →</button>
+            </div>
+        </section>
 
-                    <div>
+        <!-- ПОДАРОЧНЫЕ НАБОРЫ -->
+        <section id="gifts">
+            <h2>Подарочные наборы</h2>
+            <div style="display: flex; gap: 30px;">
+                <div style="flex: 1;">
+                    <img src="assets/img/image_1.png" alt="Подарочный набор" width="300">
+                </div>
+                <div style="flex: 1;">
+                    <h3>Набор "Покоритель вершин"</h3>
+                    <p>Идеальный подарок для лыжника или сноубордиста. Кофе отборной обжарки в подарочной упаковке.</p>
+                    <div style="display: flex; gap: 20px; margin: 20px 0;">
                         <div>
-                            <img src="assets/icons/IC_Mountain.png" alt="Высота" width="24">
-                            <span><strong>Высота сбора</strong></span>
-                            <span>700-800м (склоны Эльбруса)</span>
+                            <img src="assets/icons/IC_Mountain.png" alt="Высота" width="30">
+                            <p><strong>Высота</strong><br>700-800м</p>
                         </div>
                         <div>
-                            <img src="assets/icons/IC_coffee.png" alt="Тип зерен" width="24">
-                            <span><strong>Тип зерен</strong></span>
-                            <span>Fine Robusta Blend</span>
+                            <img src="assets/icons/IC_coffee.png" alt="Зерна" width="30">
+                            <p><strong>Зерна</strong><br>Robusta Blend</p>
                         </div>
                     </div>
-
                     <p><strong>2 850 ₽</strong></p>
-                    <button>КУПИТЬ СЕЙЧАС</button>
-                    <button>ПОДРОБНЕЕ</button>
+                    <div style="display: flex; gap: 10px;">
+                        <button>КУПИТЬ СЕЙЧАС</button>
+                        <button style="background: #415167;">ПОДРОБНЕЕ</button>
+                    </div>
                 </div>
-            </article>
+            </div>
         </section>
 
-        <!-- КОМБО НАБОРЫ: для разных видов спорта -->
+        <!-- КОМБО НАБОРЫ -->
         <section id="combos">
-            <h2>Your Personalized Coffee</h2>
-            <h3>Выберите набор для своего спорта</h3>
-
-            <article>
-                <img src="assets/img/image_2.png" alt="Набор для сноубордиста" width="200">
-                <h4>Комбо "Сноубордист"</h4>
-                <p>Насыщенный вкус для энергичного катания. Повышенная доза кофеина для концентрации на трассе.</p>
-                <div>
-                    <span><strong>1 470 ₽</strong></span>
-                    <span><s>1 550 ₽</s></span>
+            <h2>Комбо-наборы</h2>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <img src="assets/img/image_2.png" alt="Комбо 1" width="150">
+                    <h3>Комбо "Сноубордист"</h3>
+                    <p>Насыщенный вкус для энергичного катания.</p>
+                    <p><strong>1 470 ₽</strong> <s>1 550 ₽</s></p>
+                    <button>КУПИТЬ</button>
                 </div>
-                <button>КУПИТЬ СЕЙЧАС</button>
-                <button>ПОДРОБНЕЕ</button>
-            </article>
-
-            <article>
-                <img src="assets/img/image_3.png" alt="Набор для горнолыжника" width="200">
-                <h4>Комбо "Горнолыжник"</h4>
-                <p>Сбалансированный вкус с горьковатым послевкусием и нотками шоколада. Для длительных спусков.</p>
-                <div>
-                    <span><strong>1 560 ₽</strong></span>
-                    <span><s>1 650 ₽</s></span>
+                <div style="flex: 1; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <img src="assets/img/image_3.png" alt="Комбо 2" width="150">
+                    <h3>Комбо "Горнолыжник"</h3>
+                    <p>Сбалансированный вкус для спусков.</p>
+                    <p><strong>1 560 ₽</strong> <s>1 650 ₽</s></p>
+                    <button>КУПИТЬ</button>
                 </div>
-                <button>КУПИТЬ СЕЙЧАС</button>
-                <button>ПОДРОБНЕЕ</button>
-            </article>
-
-            <article>
-                <img src="assets/img/image_6.png" alt="Набор для альпиниста" width="200">
-                <h4>Комбо "Альпинист"</h4>
-                <p>Премиальный кофе для покорителей вершин. Медовая обработка зерен Arabica.</p>
-                <div>
-                    <span><strong>2 750 ₽</strong></span>
-                    <span><s>2 600 ₽</s></span>
+                <div style="flex: 1; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <img src="assets/img/image_6.png" alt="Комбо 3" width="150">
+                    <h3>Комбо "Альпинист"</h3>
+                    <p>Премиум кофе для покорителей вершин.</p>
+                    <p><strong>2 750 ₽</strong> <s>2 600 ₽</s></p>
+                    <button>КУПИТЬ</button>
                 </div>
-                <button>КУПИТЬ СЕЙЧАС</button>
-                <button>ПОДРОБНЕЕ</button>
-            </article>
-        </section>
-
-        <!-- ВЫБОР КОФЕ: с описанием вкусов -->
-        <section id="coffee-choice">
-            <h2>CHUẨN GU ĐÚNG VỊ</h2>
-            <h3>Выберите свой вкус для склона</h3>
-
-            <article>
-                <h4>REVO УТРО НА СКЛОНЕ</h4>
-                <p>Горький, со сладким послевкусием, цветочный аромат</p>
-                <p><strong>990 ₽</strong></p>
-                <button>КУПИТЬ СЕЙЧАС</button>
-                <button>ПОДРОБНЕЕ</button>
-            </article>
-
-            <article>
-                <h4>REVO ПОСЛЕ КАТАНИЯ</h4>
-                <p>Сбалансированный, с горьким послевкусием, вкус шоколада</p>
-                <p><strong>850 ₽</strong></p>
-                <button>КУПИТЬ СЕЙЧАС</button>
-                <button>ПОДРОБНЕЕ</button>
-            </article>
-
-            <article>
-                <h4>REVO ВЫСОТНЫЙ</h4>
-                <p>Сладкое послевкусие, легкая горчинка, кислинка лесных ягод</p>
-                <p><strong>1 390 ₽</strong></p>
-                <button>КУПИТЬ СЕЙЧАС</button>
-                <button>ПОДРОБНЕЕ</button>
-            </article>
-        </section>
-
-        <!-- КАЧЕСТВО: про Эльбрус -->
-        <section id="quality">
-            <h2>COFFEE BUILD YOUR BASE</h2>
-            <h3>Качество от вершины до чашки</h3>
-
-            <article>
-                <img src="assets/icons/IC_Mountain.png" alt="Горы" width="50">
-                <h4>Высота Эльбруса</h4>
-                <p>Зерна собираются на склонах самой высокой горы Европы</p>
-            </article>
-
-            <article>
-                <img src="assets/icons/IC_coffee.png" alt="Кофе" width="50">
-                <h4>Отборные зерна</h4>
-                <p>Только лучшие зерна Arabica и Robusta с альпийских склонов</p>
-            </article>
-
-            <article>
-                <img src="assets/icons/IC_1.png" alt="Магазин" width="50">
-                <h4>Кофейня на склоне</h4>
-                <p>Наш магазин расположен на станции "Мир" на Эльбрусе</p>
-            </article>
+            </div>
         </section>
     </main>
 
     <footer id="contact">
-        <div>
-            <h4>Revo Coffee Elbrus</h4>
+        <div style="background: #415167; color: white; padding: 40px;">
+            <h3>Revo Coffee Эльбрус</h3>
             <p>Эльбрус, Приэльбрусье, станция "Мир" (5642м)</p>
             <p>Телефон: +7 (800) 555-ЭЛЬБРУС</p>
             <p>Email: coffee@elbrus.revo</p>
-            <p>Часы работы: 6:00 - 22:00 (в сезон)</p>
         </div>
-        <p>© Revo Coffee Elbrus Edition - 2025</p>
-        <p>Кофе для покорителей вершин</p>
+        <p style="text-align: center; padding: 20px;">© Revo Coffee Elbrus - 2025. Кофе для покорителей вершин.</p>
     </footer>
+
+    <script>
+        // Простая карусель
+        function scrollCarousel(distance) {
+            document.getElementById('coffeeCarousel').scrollBy({
+                left: distance,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revo Coffee - Кофе с Эльбруса</title>
+    <link rel="icon" href="assets/icons/IC_coffee.png" type="image/x-icon">
+    <style>
+        /* Базовые стили для карусели */
+        .coffee-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .coffee-card {
+            min-width: 250px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .hero-banner {
+            display: flex;
+            align-items: center;
+            background: url('assets/img/banner.png') no-repeat left center;
+            background-size: cover;
+            min-height: 500px;
+            padding-left: 50%;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: #C7A87A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА -->
+    <header>
+        <nav>
+            <div>
+                <img src="assets/LOGO.png" alt="Revo Coffee" width="120">
+                <span>Эльбрус</span>
+            </div>
+            <ul>
+                <li><a href="#home">ГЛАВНАЯ</a></li>
+                <li><a href="#coffee">КОФЕ</a></li>
+                <li><a href="#gifts">ПОДАРКИ</a></li>
+                <li><a href="#combos">НАБОРЫ</a></li>
+                <li><a href="#about">О НАС</a></li>
+                <li><a href="#contact">КОНТАКТЫ</a></li>
+            </ul>
+            <div>
+                <img src="assets/icons/shopping-cart-3.png" alt="Корзина" width="30">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- БАННЕР НА 60% СПРАВА -->
+        <section id="home" class="hero-banner">
+            <div class="hero-content">
+                <h1>Ваш персональный кофе</h1>
+                <h2>КОФЕ ДЛЯ ПОКОРЕНИЯ ВЕРШИН</h2>
+                <p>На высоте 5642 метра, на склонах Эльбруса</p>
+                <button>ВЫБРАТЬ КОФЕ</button>
+            </div>
+        </section>
+
+        <!-- ИКОНКИ В СТРОКУ -->
+        <section class="features">
+            <div class="feature-item">
+                <img src="assets/icons/IC_Mountain.png" alt="Высота" width="50">
+                <h3>Высота Эльбруса</h3>
+                <p>Зерна собираются на склонах</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/icons/IC_coffee.png" alt="Качество" width="50">
+                <h3>Премиум качество</h3>
+                <p>Отборные зерна Arabica</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/icons/IC_1.png" alt="Магазин" width="50">
+                <h3>Магазин на склоне</h3>
+                <p>Прямо на горнолыжной трассе</p>
+            </div>
+            <div class="feature-item">
+                <img src="assets/icons/IC_2.png" alt="Доставка" width="50">
+                <h3>Доставка</h3>
+                <p>По всему курорту</p>
+            </div>
+        </section>
+
+        <!-- КАРУСЕЛЬ КОФЕ -->
+        <section id="coffee">
+            <h2>Выберите свой кофе</h2>
+            <div class="coffee-carousel" id="coffeeCarousel">
+                <!-- Карточка 1 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_1.png" alt="Эльбрусский восход" width="200">
+                    <h3>Эльбрусский восход</h3>
+                    <p>Для утра на склоне. Горные травы.</p>
+                    <p><strong>2 850 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_2.png" alt="Для сноубордиста" width="200">
+                    <h3>Для сноубордиста</h3>
+                    <p>Энергичный вкус, повышенный кофеин.</p>
+                    <p><strong>1 550 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+                <!-- Карточка 3 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_3.png" alt="Для горнолыжника" width="200">
+                    <h3>Для горнолыжника</h3>
+                    <p>Сбалансированный, с нотками шоколада.</p>
+                    <p><strong>1 650 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+                <!-- Карточка 4 -->
+                <div class="coffee-card">
+                    <img src="assets/img/image_6.png" alt="Для альпиниста" width="200">
+                    <h3>Для альпиниста</h3>
+                    <p>Премиум, медовая обработка.</p>
+                    <p><strong>2 600 ₽</strong></p>
+                    <button>В КОРЗИНУ</button>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="scrollCarousel(-250)">← Назад</button>
+                <button onclick="scrollCarousel(250)">Вперед →</button>
+            </div>
+        </section>
+
+        <!-- ПОДАРОЧНЫЕ НАБОРЫ -->
+        <section id="gifts">
+            <h2>Подарочные наборы</h2>
+            <div style="display: flex; gap: 30px;">
+                <div style="flex: 1;">
+                    <img src="assets/img/image_1.png" alt="Подарочный набор" width="300">
+                </div>
+                <div style="flex: 1;">
+                    <h3>Набор "Покоритель вершин"</h3>
+                    <p>Идеальный подарок для лыжника или сноубордиста. Кофе отборной обжарки в подарочной упаковке.</p>
+                    <div style="display: flex; gap: 20px; margin: 20px 0;">
+                        <div>
+                            <img src="assets/icons/IC_Mountain.png" alt="Высота" width="30">
+                            <p><strong>Высота</strong><br>700-800м</p>
+                        </div>
+                        <div>
+                            <img src="assets/icons/IC_coffee.png" alt="Зерна" width="30">
+                            <p><strong>Зерна</strong><br>Robusta Blend</p>
+                        </div>
+                    </div>
+                    <p><strong>2 850 ₽</strong></p>
+                    <div style="display: flex; gap: 10px;">
+                        <button>КУПИТЬ СЕЙЧАС</button>
+                        <button style="background: #415167;">ПОДРОБНЕЕ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КОМБО НАБОРЫ -->
+        <section id="combos">
+            <h2>Комбо-наборы</h2>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <img src="assets/img/image_2.png" alt="Комбо 1" width="150">
+                    <h3>Комбо "Сноубордист"</h3>
+                    <p>Насыщенный вкус для энергичного катания.</p>
+                    <p><strong>1 470 ₽</strong> <s>1 550 ₽</s></p>
+                    <button>КУПИТЬ</button>
+                </div>
+                <div style="flex: 1; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <img src="assets/img/image_3.png" alt="Комбо 2" width="150">
+                    <h3>Комбо "Горнолыжник"</h3>
+                    <p>Сбалансированный вкус для спусков.</p>
+                    <p><strong>1 560 ₽</strong> <s>1 650 ₽</s></p>
+                    <button>КУПИТЬ</button>
+                </div>
+                <div style="flex: 1; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <img src="assets/img/image_6.png" alt="Комбо 3" width="150">
+                    <h3>Комбо "Альпинист"</h3>
+                    <p>Премиум кофе для покорителей вершин.</p>
+                    <p><strong>2 750 ₽</strong> <s>2 600 ₽</s></p>
+                    <button>КУПИТЬ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div style="background: #415167; color: white; padding: 40px;">
+            <h3>Revo Coffee Эльбрус</h3>
+            <p>Эльбрус, Приэльбрусье, станция "Мир" (5642м)</p>
+            <p>Телефон: +7 (800) 555-ЭЛЬБРУС</p>
+            <p>Email: coffee@elbrus.revo</p>
+        </div>
+        <p style="text-align: center; padding: 20px;">© Revo Coffee Elbrus - 2025. Кофе для покорителей вершин.</p>
+    </footer>
+
+    <script>
+        // Простая карусель
+        function scrollCarousel(distance) {
+            document.getElementById('coffeeCarousel').scrollBy({
+                left: distance,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
