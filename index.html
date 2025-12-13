@@ -12,289 +12,192 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 </head>
 <body class="font-nunito text-dark bg-beige">
-    <!-- ШАПКА -->
-    <header class="bg-primary p-20">
-        <nav class="flex items-center justify-between px-20">
-            <div class="flex items-center gap-20">
-                <img src="assets/LOGO.png" alt="Revo Coffee" width="120" class="hover-scale transition">
-                <span class="text-white text-20 font-montserrat">REVO COFFEE ELBRUS</span>
+    <!-- ШАПКА С FLEXBOX МЕНЮ -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <img src="assets/LOGO.png" alt="Revo Coffee" width="120">
+                <span class="nav__logo-text">REVO COFFEE ELBRUS</span>
             </div>
 
-            <ul class="flex items-center gap-30 list-none">
-                <li><a href="#home" class="text-white text-16 font-nunito hover:text-accent transition">ГЛАВНАЯ</a></li>
-                <li><a href="#coffee" class="text-white text-16 font-nunito hover:text-accent transition">КОФЕ</a></li>
-                <li><a href="#gifts" class="text-white text-16 font-nunito hover:text-accent transition">ПОДАРКИ</a></li>
-                <li><a href="#combos" class="text-white text-16 font-nunito hover:text-accent transition">НАБОРЫ</a></li>
-                <li><a href="#quality" class="text-white text-16 font-nunito hover:text-accent transition">КАЧЕСТВО</a></li>
-                <li><a href="#contact" class="text-white text-16 font-nunito hover:text-accent transition">КОНТАКТЫ</a></li>
+            <!-- Бургер-меню для мобильных -->
+            <div class="nav__burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link">ГЛАВНАЯ</a></li>
+                <li class="nav__item"><a href="#coffee" class="nav__link">КОФЕ</a></li>
+                <li class="nav__item"><a href="#gifts" class="nav__link">ПОДАРКИ</a></li>
+                <li class="nav__item"><a href="#combos" class="nav__link">НАБОРЫ</a></li>
+                <li class="nav__item"><a href="#quality" class="nav__link">КАЧЕСТВО</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">КОНТАКТЫ</a></li>
+                <li class="nav__item nav__item--cart">
+                    <img src="assets/icons/shopping-cart-3.png" alt="Корзина" width="30">
+                    <span>КОРЗИНА</span>
+                </li>
             </ul>
-
-            <div class="flex items-center gap-20">
-                <img src="assets/icons/shopping-cart-3.png" alt="Корзина" width="30" class="hover-scale transition">
-                <span class="text-white text-16">КОРЗИНА</span>
-            </div>
         </nav>
     </header>
 
     <main>
-        <!-- БАННЕР НА 60% СПРАВА -->
-        <section id="home" class="relative min-h-500 flex items-center justify-end pr-20 bg-cover" style="background-image: url('assets/img/banner.png'); background-position: left;">
-            <div class="w-60 bg-white p-30 rounded-10 shadow-lg">
-                <h1 class="text-54 font-montserrat text-primary mb-10">YOUR PERSONALIZED COFFEE</h1>
-                <h2 class="text-30 font-montserrat text-accent mb-20">КОФЕ ДЛЯ ПОКОРЕНИЯ ВЕРШИН</h2>
-                <p class="text-16 mb-20">На самой высокой точке Европы — Эльбрусе (5642 м) мы создаем уникальный кофе для лыжников, сноубордистов и альпинистов.</p>
-                <button class="btn btn-primary text-button hover-lift hover-shadow transition">ВЫБРАТЬ КОФЕ</button>
+        <!-- БАННЕР -->
+        <section id="home" class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">YOUR PERSONALIZED COFFEE</h1>
+                <h2 class="hero__subtitle">КОФЕ ДЛЯ ПОКОРЕНИЯ ВЕРШИН</h2>
+                <p class="hero__text">На самой высокой точке Европы — Эльбрусе (5642 м) мы создаем уникальный кофе для лыжников, сноубордистов и альпинистов.</p>
+                <button class="btn btn--primary">ВЫБРАТЬ КОФЕ</button>
             </div>
         </section>
 
-        <!-- ИКОНКИ В СТРОКУ -->
-        <section class="flex justify-between items-center p-30 bg-light-gray">
-            <div class="flex flex-col items-center text-center w-200">
-                <img src="assets/icons/IC_Mountain.png" alt="Высота" width="60" class="mb-10">
-                <h3 class="text-20 font-nunito text-primary mb-10">ВЫСОТА ЭЛЬБРУСА</h3>
-                <p class="text-16">Зерна собираются на склонах</p>
-            </div>
-
-            <div class="flex flex-col items-center text-center w-200">
-                <img src="assets/icons/IC_coffee.png" alt="Качество" width="60" class="mb-10">
-                <h3 class="text-20 font-nunito text-primary mb-10">ПРЕМИУМ КАЧЕСТВО</h3>
-                <p class="text-16">Отборные зерна Arabica</p>
-            </div>
-
-            <div class="flex flex-col items-center text-center w-200">
-                <img src="assets/icons/IC_1.png" alt="Магазин" width="60" class="mb-10">
-                <h3 class="text-20 font-nunito text-primary mb-10">МАГАЗИН НА СКЛОНЕ</h3>
-                <p class="text-16">Прямо на горнолыжной трассе</p>
-            </div>
-
-            <div class="flex flex-col items-center text-center w-200">
-                <img src="assets/icons/IC_2.png" alt="Доставка" width="60" class="mb-10">
-                <h3 class="text-20 font-nunito text-primary mb-10">БЫСТРАЯ ДОСТАВКА</h3>
-                <p class="text-16">По всему курорту</p>
+        <!-- GRID СЕТКА ДЛЯ ИКОНОК -->
+        <section class="features">
+            <h2 class="features__title">НАШИ ПРЕИМУЩЕСТВА</h2>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <img src="assets/icons/IC_Mountain.png" alt="Высота" class="feature-card__icon">
+                    <h3 class="feature-card__title">ВЫСОТА ЭЛЬБРУСА</h3>
+                    <p class="feature-card__text">Зерна собираются на склонах</p>
+                </div>
+                <div class="feature-card">
+                    <img src="assets/icons/IC_coffee.png" alt="Качество" class="feature-card__icon">
+                    <h3 class="feature-card__title">ПРЕМИУМ КАЧЕСТВО</h3>
+                    <p class="feature-card__text">Отборные зерна Arabica</p>
+                </div>
+                <div class="feature-card">
+                    <img src="assets/icons/IC_1.png" alt="Магазин" class="feature-card__icon">
+                    <h3 class="feature-card__title">МАГАЗИН НА СКЛОНЕ</h3>
+                    <p class="feature-card__text">Прямо на горнолыжной трассе</p>
+                </div>
+                <div class="feature-card">
+                    <img src="assets/icons/IC_2.png" alt="Доставка" class="feature-card__icon">
+                    <h3 class="feature-card__title">БЫСТРАЯ ДОСТАВКА</h3>
+                    <p class="feature-card__text">По всему курорту</p>
+                </div>
             </div>
         </section>
 
-        <!-- КАРУСЕЛЬ КОФЕ -->
-        <section id="coffee" class="p-30">
-            <h2 class="text-30 font-montserrat text-primary text-center mb-20">ВЫБЕРИТЕ СВОЙ КОФЕ</h2>
-
-            <div class="carousel" id="coffeeCarousel">
-                <!-- Карточка 1 -->
-                <div class="carousel-item bg-white border rounded-10 p-20 hover-shadow transition">
-                    <img src="assets/img/image_1.png" alt="Эльбрусский восход" class="w-full mb-20 rounded-5">
-                    <h3 class="text-20 font-nunito text-primary mb-10">ЭЛЬБРУССКИЙ ВОСХОД</h3>
-                    <p class="text-16 mb-20">Для утра на склоне с горными травами</p>
-                    <p class="text-20 font-nunito text-accent mb-20">2 850 ₽</p>
-                    <button class="btn btn-primary w-full hover-scale transition">В КОРЗИНУ</button>
-                </div>
-
-                <!-- Карточка 2 -->
-                <div class="carousel-item bg-white border rounded-10 p-20 hover-shadow transition">
-                    <img src="assets/img/image_2.png" alt="Для сноубордиста" class="w-full mb-20 rounded-5">
-                    <h3 class="text-20 font-nunito text-primary mb-10">ДЛЯ СНОУБОРДИСТА</h3>
-                    <p class="text-16 mb-20">Энергичный вкус, повышенный кофеин</p>
-                    <p class="text-20 font-nunito text-accent mb-20">1 550 ₽</p>
-                    <button class="btn btn-primary w-full hover-scale transition">В КОРЗИНУ</button>
-                </div>
-
-                <!-- Карточка 3 -->
-                <div class="carousel-item bg-white border rounded-10 p-20 hover-shadow transition">
-                    <img src="assets/img/image_3.png" alt="Для горнолыжника" class="w-full mb-20 rounded-5">
-                    <h3 class="text-20 font-nunito text-primary mb-10">ДЛЯ ГОРНОЛЫЖНИКА</h3>
-                    <p class="text-16 mb-20">Сбалансированный, с нотками шоколада</p>
-                    <p class="text-20 font-nunito text-accent mb-20">1 650 ₽</p>
-                    <button class="btn btn-primary w-full hover-scale transition">В КОРЗИНУ</button>
-                </div>
-
-                <!-- Карточка 4 -->
-                <div class="carousel-item bg-white border rounded-10 p-20 hover-shadow transition">
-                    <img src="assets/img/image_6.png" alt="Для альпиниста" class="w-full mb-20 rounded-5">
-                    <h3 class="text-20 font-nunito text-primary mb-10">ДЛЯ АЛЬПИНИСТА</h3>
-                    <p class="text-16 mb-20">Премиум, медовая обработка зерен</p>
-                    <p class="text-20 font-nunito text-accent mb-20">2 600 ₽</p>
-                    <button class="btn btn-primary w-full hover-scale transition">В КОРЗИНУ</button>
-                </div>
+        <!-- GRID СЕТКА ДЛЯ КОФЕ -->
+        <section id="coffee" class="coffee-section">
+            <h2 class="section-title">ВЫБЕРИТЕ СВОЙ КОФЕ</h2>
+            <div class="coffee-grid">
+                <article class="coffee-card">
+                    <img src="assets/img/image_1.png" alt="Эльбрусский восход" class="coffee-card__image">
+                    <h3 class="coffee-card__title">ЭЛЬБРУССКИЙ ВОСХОД</h3>
+                    <p class="coffee-card__text">Для утра на склоне с горными травами</p>
+                    <p class="coffee-card__price">2 850 ₽</p>
+                    <button class="btn btn--secondary">В КОРЗИНУ</button>
+                </article>
+                <article class="coffee-card">
+                    <img src="assets/img/image_2.png" alt="Для сноубордиста" class="coffee-card__image">
+                    <h3 class="coffee-card__title">ДЛЯ СНОУБОРДИСТА</h3>
+                    <p class="coffee-card__text">Энергичный вкус, повышенный кофеин</p>
+                    <p class="coffee-card__price">1 550 ₽</p>
+                    <button class="btn btn--secondary">В КОРЗИНУ</button>
+                </article>
+                <article class="coffee-card">
+                    <img src="assets/img/image_3.png" alt="Для горнолыжника" class="coffee-card__image">
+                    <h3 class="coffee-card__title">ДЛЯ ГОРНОЛЫЖНИКА</h3>
+                    <p class="coffee-card__text">Сбалансированный, с нотками шоколада</p>
+                    <p class="coffee-card__price">1 650 ₽</p>
+                    <button class="btn btn--secondary">В КОРЗИНУ</button>
+                </article>
+                <article class="coffee-card">
+                    <img src="assets/img/image_6.png" alt="Для альпиниста" class="coffee-card__image">
+                    <h3 class="coffee-card__title">ДЛЯ АЛЬПИНИСТА</h3>
+                    <p class="coffee-card__text">Премиум, медовая обработка зерен</p>
+                    <p class="coffee-card__price">2 600 ₽</p>
+                    <button class="btn btn--secondary">В КОРЗИНУ</button>
+                </article>
             </div>
+        </section>
 
-            <div class="flex justify-center gap-20 mt-30">
-                <button onclick="scrollCarousel(-300)" class="btn btn-secondary hover-lift transition">← НАЗАД</button>
-                <button onclick="scrollCarousel(300)" class="btn btn-secondary hover-lift transition">ВПЕРЕД →</button>
+        <!-- MASONRY СЕТКА (по желанию) -->
+        <section class="masonry-section">
+            <h2 class="section-title">ИСТОРИИ С ЭЛЬБРУСА</h2>
+            <div class="masonry-grid">
+                <article class="masonry-item masonry-item--short">
+                    <h3 class="masonry-item__title">Утро на склоне</h3>
+                    <p class="masonry-item__text">Как наши бариста начинают день на высоте 3500 метров.</p>
+                </article>
+                <article class="masonry-item masonry-item--tall">
+                    <h3 class="masonry-item__title">Сбор зерен в горах</h3>
+                    <p class="masonry-item__text">Эксклюзивный репортаж о том, как мы собираем кофейные зерна на склонах Эльбруса. Уникальный климат и высота создают неповторимый вкус.</p>
+                </article>
+                <article class="masonry-item">
+                    <h3 class="masonry-item__title">Кофе для чемпионов</h3>
+                    <p class="masonry-item__text">Наш кофе выбирают профессиональные спортсмены для подготовки к соревнованиям.</p>
+                </article>
+                <article class="masonry-item masonry-item--very-tall">
+                    <h3 class="masonry-item__title">Экологичное производство</h3>
+                    <p class="masonry-item__text">Мы используем только экологичные методы сбора и обработки зерен. Все отходы перерабатываются, упаковка сделана из перерабатываемых материалов. Наша философия — минимальное воздействие на природу Кавказа.</p>
+                </article>
             </div>
         </section>
 
         <!-- ПОДАРОЧНЫЕ НАБОРЫ -->
-        <section id="gifts" class="p-30 bg-light-gray">
-            <h2 class="text-30 font-montserrat text-primary text-center mb-10">GIFTSET</h2>
-            <h3 class="text-24 font-nunito text-dark text-center mb-30">Лучший подарок для лыжника и сноубордиста</h3>
-
-            <div class="flex gap-30 items-center">
-                <div class="w-50">
-                    <img src="assets/img/image_1.png" alt="Подарочный набор" class="w-full rounded-10 hover-scale transition">
+        <section id="gifts" class="gifts-section">
+            <div class="gift-container">
+                <div class="gift-image">
+                    <img src="assets/img/image_1.png" alt="Подарочный набор">
                 </div>
-
-                <div class="w-50">
-                    <h4 class="text-24 font-nunito text-primary mb-20">НАБОР "ПОКОРИТЕЛЬ ВЕРШИН"</h4>
-                    <p class="text-16 mb-20">Идеальный подарок для лыжника или сноубордиста. Кофе отборной обжарки в подарочной упаковке с Эльбруса.</p>
-
-                    <div class="flex gap-30 mb-20">
-                        <div class="flex items-center gap-10">
-                            <img src="assets/icons/IC_Mountain.png" alt="Высота" width="30">
+                <div class="gift-content">
+                    <h2 class="gift-title">НАБОР "ПОКОРИТЕЛЬ ВЕРШИН"</h2>
+                    <p class="gift-text">Идеальный подарок для лыжника или сноубордиста. Кофе отборной обжарки в подарочной упаковке с Эльбруса.</p>
+                    <div class="gift-details">
+                        <div class="gift-detail">
+                            <img src="assets/icons/IC_Mountain.png" alt="Высота">
                             <div>
-                                <p class="text-16 font-nunito text-primary"><strong>ВЫСОТА</strong></p>
-                                <p class="text-16">700-800м</p>
+                                <strong>ВЫСОТА</strong>
+                                <p>700-800м</p>
                             </div>
                         </div>
-
-                        <div class="flex items-center gap-10">
-                            <img src="assets/icons/IC_coffee.png" alt="Зерна" width="30">
+                        <div class="gift-detail">
+                            <img src="assets/icons/IC_coffee.png" alt="Зерна">
                             <div>
-                                <p class="text-16 font-nunito text-primary"><strong>ЗЕРНА</strong></p>
-                                <p class="text-16">Robusta Blend</p>
+                                <strong>ЗЕРНА</strong>
+                                <p>Robusta Blend</p>
                             </div>
                         </div>
                     </div>
-
-                    <p class="text-24 font-nunito text-accent mb-20">2 850 ₽</p>
-
-                    <div class="flex gap-10">
-                        <button class="btn btn-primary hover-lift transition">КУПИТЬ СЕЙЧАС</button>
-                        <button class="btn btn-secondary hover-lift transition">ПОДРОБНЕЕ</button>
+                    <p class="gift-price">2 850 ₽</p>
+                    <div class="gift-buttons">
+                        <button class="btn btn--primary">КУПИТЬ СЕЙЧАС</button>
+                        <button class="btn btn--outline">ПОДРОБНЕЕ</button>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- КОМБО НАБОРЫ -->
-        <section id="combos" class="p-30">
-            <h2 class="text-30 font-montserrat text-primary text-center mb-10">YOUR PERSONALIZED COFFEE</h2>
-            <h3 class="text-24 font-nunito text-dark text-center mb-30">Выберите набор для своего спорта</h3>
-
-            <div class="flex justify-between gap-20">
-                <!-- Комбо 1 -->
-                <div class="flex-1 bg-white border rounded-10 p-20 text-center hover-shadow transition">
-                    <img src="assets/img/image_2.png" alt="Комбо 1" class="w-200 mx-auto mb-20">
-                    <h4 class="text-20 font-nunito text-primary mb-10">КОМБО "СНОУБОРДИСТ"</h4>
-                    <p class="text-16 mb-20">Насыщенный вкус для энергичного катания</p>
-                    <p class="text-20 font-nunito text-accent mb-10">1 470 ₽</p>
-                    <p class="text-16 text-dark mb-20"><s>1 550 ₽</s></p>
-                    <button class="btn btn-primary w-full hover-scale transition">КУПИТЬ</button>
-                </div>
-
-                <!-- Комбо 2 -->
-                <div class="flex-1 bg-white border rounded-10 p-20 text-center hover-shadow transition">
-                    <img src="assets/img/image_3.png" alt="Комбо 2" class="w-200 mx-auto mb-20">
-                    <h4 class="text-20 font-nunito text-primary mb-10">КОМБО "ГОРНОЛЫЖНИК"</h4>
-                    <p class="text-16 mb-20">Сбалансированный вкус для спусков</p>
-                    <p class="text-20 font-nunito text-accent mb-10">1 560 ₽</p>
-                    <p class="text-16 text-dark mb-20"><s>1 650 ₽</s></p>
-                    <button class="btn btn-primary w-full hover-scale transition">КУПИТЬ</button>
-                </div>
-
-                <!-- Комбо 3 -->
-                <div class="flex-1 bg-white border rounded-10 p-20 text-center hover-shadow transition">
-                    <img src="assets/img/image_6.png" alt="Комбо 3" class="w-200 mx-auto mb-20">
-                    <h4 class="text-20 font-nunito text-primary mb-10">КОМБО "АЛЬПИНИСТ"</h4>
-                    <p class="text-16 mb-20">Премиум кофе для покорителей вершин</p>
-                    <p class="text-20 font-nunito text-accent mb-10">2 750 ₽</p>
-                    <p class="text-16 text-dark mb-20"><s>2 600 ₽</s></p>
-                    <button class="btn btn-primary w-full hover-scale transition">КУПИТЬ</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- КАЧЕСТВО -->
-        <section id="quality" class="p-30 bg-primary">
-            <h2 class="text-30 font-montserrat text-white text-center mb-10">COFFEE BUILD YOUR BASE</h2>
-            <h3 class="text-24 font-nunito text-accent text-center mb-30">Качество от вершины до чашки</h3>
-
-            <div class="flex justify-between text-white text-center">
-                <div class="w-200">
-                    <div class="bg-accent rounded-full w-100 h-100 flex items-center justify-center mx-auto mb-20">
-                        <img src="assets/icons/IC_Mountain.png" alt="Горы" width="50">
-                    </div>
-                    <h4 class="text-20 font-nunito mb-10">ВЫСОТА ЭЛЬБРУСА</h4>
-                    <p class="text-16">Зерна собираются на склонах самой высокой горы Европы</p>
-                </div>
-
-                <div class="w-200">
-                    <div class="bg-accent rounded-full w-100 h-100 flex items-center justify-center mx-auto mb-20">
-                        <img src="assets/icons/IC_coffee.png" alt="Кофе" width="50">
-                    </div>
-                    <h4 class="text-20 font-nunito mb-10">ОТБОРНЫЕ ЗЕРНА</h4>
-                    <p class="text-16">Только лучшие зерна Arabica с альпийских склонов</p>
-                </div>
-
-                <div class="w-200">
-                    <div class="bg-accent rounded-full w-100 h-100 flex items-center justify-center mx-auto mb-20">
-                        <img src="assets/icons/IC_1.png" alt="Магазин" width="50">
-                    </div>
-                    <h4 class="text-20 font-nunito mb-10">КОФЕЙНЯ НА СКЛОНЕ</h4>
-                    <p class="text-16">Наш магазин расположен на станции "Мир" на Эльбрусе</p>
-                </div>
-
-                <div class="w-200">
-                    <div class="bg-accent rounded-full w-100 h-100 flex items-center justify-center mx-auto mb-20">
-                        <img src="assets/icons/IC_3.png" alt="Обжарка" width="50">
-                    </div>
-                    <h4 class="text-20 font-nunito mb-10">ПРАВИЛЬНАЯ ОБЖАРКА</h4>
-                    <p class="text-16">Современное оборудование для идеальной обжарки</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact" class="bg-dark p-30">
-        <div class="flex justify-between items-center mb-30">
-            <div>
-                <h3 class="text-24 font-nunito text-white mb-10">REVO COFFEE ELBRUS</h3>
-                <p class="text-16 text-white mb-5">Эльбрус, Приэльбрусье, станция "Мир"</p>
-                <p class="text-16 text-white mb-5">Высота: 5642 метра</p>
-                <p class="text-16 text-white mb-5">Телефон: +7 (800) 555-ЭЛЬБРУС</p>
-                <p class="text-16 text-white">Email: coffee@elbrus.revo</p>
+    <footer id="contact" class="footer">
+        <div class="footer__content">
+            <div class="footer__section">
+                <h3 class="footer__title">REVO COFFEE ELBRUS</h3>
+                <p class="footer__text">Эльбрус, Приэльбрусье, станция "Мир"</p>
+                <p class="footer__text">Высота: 5642 метра</p>
+                <p class="footer__text">Телефон: +7 (800) 555-ЭЛЬБРУС</p>
+                <p class="footer__text">Email: coffee@elbrus.revo</p>
             </div>
-
-            <div>
-                <p class="text-16 text-white mb-10">Часы работы (горнолыжный сезон):</p>
-                <p class="text-16 text-white">6:00 - 22:00 ежедневно</p>
+            <div class="footer__section">
+                <p class="footer__text"><strong>Часы работы:</strong></p>
+                <p class="footer__text">6:00 - 22:00 (горнолыжный сезон)</p>
+                <p class="footer__text">Ежедневно</p>
             </div>
-
-            <div>
-                <img src="assets/icons/IC_coffee.png" alt="Лого" width="80" class="mb-10">
-                <p class="text-16 text-accent">Кофе для покорителей вершин</p>
+            <div class="footer__section">
+                <img src="assets/icons/IC_coffee.png" alt="Лого" class="footer__logo">
+                <p class="footer__slogan">Кофе для покорителей вершин</p>
             </div>
         </div>
-
-        <div class="border-t border-gray-700 pt-20 text-center">
-            <p class="text-16 text-white">© Revo Coffee Elbrus Edition - 2025</p>
-            <p class="text-16 text-accent mt-10">Сайт создан в рамках учебного проекта по фронтенд-разработке</p>
+        <div class="footer__copyright">
+            <p>© Revo Coffee Elbrus Edition - 2025</p>
+            <p>Сайт создан в рамках учебного проекта по фронтенд-разработке</p>
         </div>
     </footer>
 
-    <script>
-        // Карусель кофе
-        function scrollCarousel(distance) {
-            document.getElementById('coffeeCarousel').scrollBy({
-                left: distance,
-                behavior: 'smooth'
-            });
-        }
-
-        // Плавная прокрутка для навигации
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
